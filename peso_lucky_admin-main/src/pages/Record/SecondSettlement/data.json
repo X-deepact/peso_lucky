@@ -1,0 +1,21 @@
+{
+    "id": 1,
+    "seq": "1124202404240002",
+    "order_number": "e5c2918c58696a72b7c858ab773f0053",
+    "user_id": 508846334313234560,
+    "nickname": "grey01",
+    "currency": "PHP",
+    "game_id": 124,
+    "game_name": "CG43",
+    "merchant_id": 892,
+    "merchant_name": "grey",
+    "init_prize_amount": 5010035,
+    "second_prize_amount": 0,
+    "adjust_amount": 0,
+    "not_recycle_mult_amount": 0,
+    "not_recycle_jackpot_amount": 0,
+    "status": 1,
+    "settle_time": 0,
+    "updated_at": 1721966452,
+    "created_at": 1721966452250
+}

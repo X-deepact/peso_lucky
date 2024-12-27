@@ -1,0 +1,28 @@
+name: nextjs-monorepo-example-db
+
+services:
+  main-db:
+    container_name: nextjs-monorepo-example-db
+    image: postgres:17-alpine3.20
+    ports:
+      - target: 5432
+        published: 5432
+        protocol: tcp
+    environment:
+      - POSTGRES_DB=maindb
+      - POSTGRES_PASSWORD=!ChangeMe!
+      - POSTGRES_USER=nextjs
+    networks:
+      - nextjs-monorepo-example-network
+    volumes:
+      - db_data:/var/lib/postgresql/data:rw
+      # you may use a bind-mounted host directory instead,
+      # so that it is harder to accidentally remove the volume and lose all your data!
+      # - ./docker/db/data:/var/lib/postgresql/data:rw
+
+volumes:
+  db_data:
+
+networks:
+  nextjs-monorepo-example-network:
+    driver: bridge

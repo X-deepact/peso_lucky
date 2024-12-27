@@ -1,0 +1,9 @@
+body.hidden-sider .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
+  display: none;
+}
+body.hidden-sider .ant-layout-has-sider > :first-child {
+  display: none;
+  visibility: hidden;
+}
+
+/* body.hidden-sider .ant-layout-has-sider 第一个子元素 */

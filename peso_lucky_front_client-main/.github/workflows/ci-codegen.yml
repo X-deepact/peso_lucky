@@ -1,0 +1,31 @@
+name: CI-codegen-sync
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  codegen:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 📥 Monorepo install
+        uses: ./.github/actions/yarn-nm-install
+
+      - name: 🏗 Run codegen
+        run: yarn workspaces foreach -A -tv run codegen
+
+      - name: 🛟 Check if codegen is in sync
+        shell: bash
+        run: bash ./scripts/check-git-pristine.sh

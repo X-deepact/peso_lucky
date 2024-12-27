@@ -1,0 +1,39 @@
+{
+  "name": "@your-org/common-i18n",
+  "version": "1.2.2",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "./locales/*.json": {
+      "require": "./src/locales/*.json",
+      "import": "./src/locales/*.json"
+    },
+    "./package.json": "./package.json"
+  },
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/belgattitude/nextjs-monorepo-example",
+    "directory": "packages/common-i18n"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist ./coverage ./tsconfig.tsbuildinfo",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --cache --cache-location ../../.cache/eslint/common-i18n.eslintcache",
+    "typecheck": "tsc --project ./tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "22.9.3",
+    "@your-org/eslint-config-bases": "workspace:^",
+    "cross-env": "7.0.3",
+    "eslint": "8.57.1",
+    "prettier": "3.4.2",
+    "rimraf": "6.0.1",
+    "typescript": "5.7.2"
+  }
+}

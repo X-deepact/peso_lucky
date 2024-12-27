@@ -1,0 +1,23 @@
+{
+    "id": 7,
+    "seq": "1114202404120001",
+    "order_number": "8956d22914edb301c0a60532954b18a9",
+    "user_id": 508846334313234560,
+    "nickname": "grey01",
+    "currency": "PHP",
+    "game_id": 114,
+    "game_name": "CG19",
+    "merchant_id": 892,
+    "merchant_name": "grey",
+    "init_prize_amount": 20000,
+    "second_prize_amount": 0,
+    "adjust_amount": 0,
+    "win_lose_amount": "",
+    "win_lose_adjustment": 0,
+    "not_recycle_mult_amount": 0,
+    "not_recycle_jackpot_amount": 0,
+    "status": 1,
+    "settle_time": 0,
+    "updated_at": 1721983020,
+    "created_at": 1721983016770
+}

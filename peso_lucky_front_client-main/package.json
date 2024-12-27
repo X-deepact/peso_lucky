@@ -1,0 +1,88 @@
+{
+  "name": "nextjs-monorepo-example",
+  "private": true,
+  "keywords": [
+    "eslint-plugin",
+    "example",
+    "monorepo",
+    "nextjs",
+    "playwright",
+    "prisma",
+    "remix",
+    "storybook",
+    "vite",
+    "workspace"
+  ],
+  "author": {
+    "name": "Vanvelthem Sébastien",
+    "url": "https://github.com/belgattitude"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/belgattitude/nextjs-monorepo-example",
+  "repository": "belgattitude/nextjs-monorepo-example",
+  "scripts": {
+    "check:git-pristine": "./scripts/check-git-pristine.sh",
+    "clean:global-cache": "rimraf ./.cache",
+    "clean:turbo": "turbo clean && rimraf --glob '**/.turbo' '**/turbo-*.log'",
+    "deps:check": "npx npm-check-updates@latest --configFileName .ncurc.yml --workspaces --root --mergeConfig",
+    "deps:update": "npx npm-check-updates@latest --configFileName .ncurc.yml -u --workspaces --root --mergeConfig",
+    "g:build": "turbo run build",
+    "g:changeset": "changeset",
+    "g:check-dist": "turbo run check-dist",
+    "g:clean": "yarn clean:global-cache && yarn clean:turbo && rimraf ./out && yarn workspaces foreach -A -ptv run clean",
+    "g:codegen": "turbo run codegen",
+    "g:fix-all-files": "turbo run fix-all-files",
+    "g:lint": "TIMING=1 turbo run lint --color",
+    "g:lint-staged-files": "lint-staged --allow-empty",
+    "g:lint-styles": "turbo run lint-styles --color",
+    "g:release": "yarn g:build && changeset publish",
+    "g:test-e2e": "turbo run test-e2e",
+    "g:test-unit": "turbo run test-unit",
+    "g:typecheck": "turbo run typecheck",
+    "g:turbo": "turbo",
+    "install:playwright": "playwright install",
+    "install:husky": "husky",
+    "nuke:node_modules": "rimraf --glob '**/node_modules'",
+    "postinstall": "run-s install:husky g:codegen",
+    "check:install": "yarn dlx @yarnpkg/doctor .",
+    "h5:dev": "cd apps/h5 && yarn dev",
+    "h5:build:dev": "cd apps/h5 && yarn build",
+    "h5:build:test": "cd apps/h5 && yarn build",
+    "h5:build:beta": "cd apps/h5 && yarn build",
+    "h5:build:prd": "cd apps/h5 && yarn build",
+    "vite:dev": "cd apps/vite-app && yarn dev"
+  },
+  "dependencies": {
+    "cross-env": "7.0.3"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "0.5.0",
+    "@changesets/cli": "2.27.10",
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@types/shell-quote": "1.7.5",
+    "@your-org/eslint-config-bases": "workspace:^",
+    "eslint": "8.57.1",
+    "husky": "9.1.7",
+    "lint-staged": "15.2.11",
+    "npm-run-all2": "7.0.1",
+    "prettier": "3.4.2",
+    "rimraf": "6.0.1",
+    "shell-quote": "1.8.2",
+    "syncpack": "13.0.0",
+    "turbo": "2.3.3",
+    "typescript": "5.7.2"
+  },
+  "engines": {
+    "node": ">=18.18.0"
+  },
+  "packageManager": "yarn@4.5.3",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "volta": {
+    "node": "20.12.0",
+    "yarn": "4.5.3"
+  }
+}

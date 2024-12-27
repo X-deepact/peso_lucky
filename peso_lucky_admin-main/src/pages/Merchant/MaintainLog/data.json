@@ -1,0 +1,13 @@
+{
+    "id": "1",
+    "game_code": "by",
+    "game_name": "捕鱼",
+    "maintain_type": 1,
+    "operate_type": 1,
+    "remark": "remark",
+    "created_at": 0,
+    "updated_at": 0,
+    "created_by": "cg_admin",
+    "updated_by": "",
+    "valid_status": 1
+}
